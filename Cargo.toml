@@ -1,0 +1,27 @@
+[package]
+name = "pixelplanet"
+version = "0.0.1"
+edition = "2024"
+
+[lib]
+name = "pixelplanet"
+path = "src/lib.rs"
+
+[[bin]]
+name = "pixelplanet"
+path = "src/main.rs"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.dev.package."*"]
+opt-level = 3
+debug = true
+
+[dependencies]
+rand = "0.9.2"
+
+[dependencies.bevy]
+version = "0.17.2"
+
