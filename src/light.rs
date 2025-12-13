@@ -35,11 +35,7 @@ fn spawn_sun_light(mut commands: Commands) {
             shadows_enabled: true,
             ..default()
         },
-        Transform {
-            translation: Vec3::new(-10.0, 4.0, -5.0),
-            rotation: Quat::from_rotation_x(-PI / 4.),
-            ..default()
-        },
+        Transform::from_xyz(-1000.0, 3000.0, -1000.0).looking_at(Vec3::ZERO, Vec3::Y),
         CascadeShadowConfigBuilder {
             first_cascade_far_bound: 4.0,
             maximum_distance: 10.0,
