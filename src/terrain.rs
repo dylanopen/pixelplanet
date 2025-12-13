@@ -10,6 +10,7 @@ use bevy::{
     mesh::{Mesh, Mesh3d, Meshable},
     pbr::{MeshMaterial3d, StandardMaterial},
     transform::components::Transform,
+    utils::default,
 };
 use rand::{Rng, rng};
 
@@ -41,12 +42,16 @@ fn spawn_grass_voxel(
     commands.spawn((
         TerrainVoxel,
         Mesh3d(meshes.add(Cuboid::new(1.0, 1.0, 1.0))),
-        MeshMaterial3d(materials.add(Color::linear_rgb(
-            0.3 * brightness_noise,
-            0.7 + brightness_noise,
-            0.3 * brightness_noise,
-        ))),
         transform,
+        MeshMaterial3d(materials.add(StandardMaterial {
+            base_color: Color::linear_rgb(
+                0.3 * brightness_noise,
+                0.7 + brightness_noise,
+                0.3 * brightness_noise,
+            ),
+            unlit: true,
+            ..default()
+        })),
     ));
 }
 

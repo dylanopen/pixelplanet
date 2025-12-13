@@ -54,9 +54,6 @@ fn spawn_selector_mesh(
         Mesh3d(meshes.add(Cuboid::new(1.02, 1.02, 1.02))),
         MeshMaterial3d(materials.add(Color::linear_rgba(1.0, 1.0, 1.0, 0.4))),
         transform,
-        MeshOutline::new(5.0)
-            .with_color(Color::WHITE)
-            .with_intensity(1.0),
         NotShadowCaster,
     ));
 }
@@ -95,8 +92,6 @@ fn map_cursor_hover(
             Some(distance) => distance,
             None => return,
         };
-
-    dbg!(ray.get_point(distance));
 
     let point = ray.get_point(distance).floor().xz();
 
