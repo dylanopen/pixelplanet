@@ -49,7 +49,7 @@ fn spawn_terrain_voxels(
                 &mut commands,
                 &mut meshes,
                 &mut materials,
-                Transform::from_xyz(x as f32, 0.0, z as f32),
+                Transform::from_xyz(x as f32 + 0.5, 0.5, z as f32 + 0.5),
             );
         }
     }
