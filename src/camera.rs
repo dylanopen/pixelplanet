@@ -2,9 +2,8 @@ use bevy::{
     app::{Plugin, Startup},
     camera::Camera3d,
     ecs::component::Component,
-    math::Vec3,
-    transform::components::Transform,
 };
+use bevy_map_camera::MapCamera;
 
 pub struct CameraPlugin;
 
@@ -19,10 +18,6 @@ impl Plugin for CameraPlugin {
 pub struct MainCamera;
 
 fn spawn_camera(mut commands: bevy::ecs::system::Commands) {
-    commands.spawn((
-        MainCamera,
-        Camera3d::default(),
-        Transform::from_xyz(-10.0, 10.0, -10.0).looking_at(Vec3::new(0.0, 0.0, 0.0), Vec3::Y),
-    ));
+    commands.spawn(MapCamera);
 }
 
