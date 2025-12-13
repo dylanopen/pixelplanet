@@ -20,4 +20,3 @@ pub struct MainCamera;
 fn spawn_camera(mut commands: bevy::ecs::system::Commands) {
     commands.spawn(MapCamera);
 }
-
