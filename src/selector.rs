@@ -52,7 +52,7 @@ fn spawn_selector_mesh(
     commands.spawn((
         TileSelectedIndicator,
         Mesh3d(meshes.add(Cuboid::new(1.02, 1.02, 1.02))),
-        MeshMaterial3d(materials.add(Color::linear_rgba(1.0, 1.0, 1.0, 0.8))),
+        MeshMaterial3d(materials.add(Color::linear_rgba(1.0, 1.0, 1.0, 0.4))),
         transform,
         MeshOutline::new(5.0)
             .with_color(Color::WHITE)

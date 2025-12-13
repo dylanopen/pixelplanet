@@ -11,6 +11,7 @@ use bevy::{
     pbr::{MeshMaterial3d, StandardMaterial},
     transform::components::Transform,
 };
+use rand::{Rng, rng};
 
 pub struct TerrainPlugin;
 
@@ -35,10 +36,12 @@ fn spawn_grass_voxel(
     materials: &mut ResMut<Assets<StandardMaterial>>,
     transform: Transform,
 ) {
+    let brightness_noise = rng().random_range(0.7..1.3);
+        
     commands.spawn((
         TerrainVoxel,
         Mesh3d(meshes.add(Cuboid::new(1.0, 1.0, 1.0))),
-        MeshMaterial3d(materials.add(Color::linear_rgb(0.3, 0.7, 0.3))),
+        MeshMaterial3d(materials.add(Color::linear_rgb(0.3*brightness_noise, 0.7+brightness_noise, 0.3*brightness_noise))),
         transform,
     ));
 }
