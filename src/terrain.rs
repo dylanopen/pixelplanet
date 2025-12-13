@@ -43,8 +43,8 @@ fn spawn_terrain_voxels(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    for x in -20..20 {
-        for z in -20..20 {
+    for x in -32..32 {
+        for z in -32..32 {
             spawn_grass_voxel(
                 &mut commands,
                 &mut meshes,
