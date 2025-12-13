@@ -1,11 +1,6 @@
 use bevy::{
     app::{Plugin, Startup},
-    camera::Camera3d,
-    ecs::component::Component,
-    render::view::Msaa,
 };
-use bevy_map_camera::MapCamera;
-use bevy_mesh_outline::OutlineCamera;
 
 use crate::spawn::main_camera::spawn_camera;
 
