@@ -6,8 +6,8 @@ use bevy::{
         component::Component,
         system::{Commands, ResMut},
     },
-    math::primitives::Cuboid,
-    mesh::{Mesh, Mesh3d},
+    math::primitives::{Cuboid, Plane3d},
+    mesh::{Mesh, Mesh3d, Meshable},
     pbr::{MeshMaterial3d, StandardMaterial},
     transform::components::Transform,
 };
@@ -17,8 +17,13 @@ pub struct TerrainPlugin;
 impl Plugin for TerrainPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(Startup, spawn_terrain_voxels);
+        app.add_systems(Startup, spawn_ground_plane);
     }
 }
+
+#[derive(Component)]
+#[require(Transform)]
+pub struct Ground;
 
 #[derive(Component)]
 #[require(Mesh3d, MeshMaterial3d<StandardMaterial>, Transform)]
@@ -32,9 +37,17 @@ fn spawn_grass_voxel(
 ) {
     commands.spawn((
         TerrainVoxel,
-        Mesh3d(meshes.add(Cuboid::new(1.0, 0.875, 1.0))),
+        Mesh3d(meshes.add(Cuboid::new(1.0, 1.0, 1.0))),
         MeshMaterial3d(materials.add(Color::linear_rgb(0.3, 0.7, 0.3))),
         transform,
+    ));
+}
+
+fn spawn_ground_plane(mut commands: Commands, mut meshes: ResMut<Assets<Mesh>>) {
+    commands.spawn((
+        Transform::from_xyz(0.5, 1.0, 0.5),
+        Mesh3d(meshes.add(Plane3d::default().mesh().size(64., 64.))),
+        Ground,
     ));
 }
 

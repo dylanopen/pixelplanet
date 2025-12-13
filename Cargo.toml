@@ -21,6 +21,7 @@ debug = true
 
 [dependencies]
 bevy_map_camera = "0.5.0"
+bevy_mesh_outline = "0.2.0"
 rand = "0.9.2"
 
 [dependencies.bevy]

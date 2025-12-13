@@ -2,8 +2,10 @@ use bevy::{
     app::{Plugin, Startup},
     camera::Camera3d,
     ecs::component::Component,
+    render::view::Msaa,
 };
 use bevy_map_camera::MapCamera;
+use bevy_mesh_outline::OutlineCamera;
 
 pub struct CameraPlugin;
 
@@ -18,5 +20,5 @@ impl Plugin for CameraPlugin {
 pub struct MainCamera;
 
 fn spawn_camera(mut commands: bevy::ecs::system::Commands) {
-    commands.spawn(MapCamera);
+    commands.spawn((MapCamera, MainCamera, Msaa::Off, OutlineCamera));
 }
