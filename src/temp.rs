@@ -1,12 +1,15 @@
 use bevy::{
-    asset::Assets,
-    color::Color,
-    ecs::system::{Commands, ResMut},
-    math::primitives::Cuboid,
-    mesh::{Mesh, Mesh3d},
-    pbr::{MeshMaterial3d, StandardMaterial},
-    transform::components::Transform,
+    asset::{AssetServer, Assets}, color::Color, ecs::system::{Commands, ResMut}, light::EnvironmentMapLight, math::{Vec2, Vec3, primitives::Cuboid}, mesh::{Mesh, Mesh3d}, pbr::{MeshMaterial3d, StandardMaterial}, post_process::bloom::Bloom, scene::SceneRoot, transform::components::Transform, utils::default
 };
+
+pub fn spawn_example_road(mut commands: Commands, mut asset_server: ResMut<AssetServer>) {
+    let road_handle = asset_server.load("buildings/road1.vox");
+
+    commands.spawn((
+        SceneRoot(road_handle),
+        Transform::from_xyz(16.0, 16.0, 0.0).with_scale(Vec3::splat(1.0 / 64.0)),
+    ));
+}
 
 pub fn spawn_example_cube(
     mut commands: Commands,
