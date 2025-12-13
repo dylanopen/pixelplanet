@@ -19,7 +19,6 @@ use bevy::{
     transform::components::{GlobalTransform, Transform},
     window::Window,
 };
-use bevy_mesh_outline::MeshOutline;
 
 use crate::{camera::MainCamera, terrain::Ground};
 
