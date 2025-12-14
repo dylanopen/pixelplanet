@@ -16,6 +16,7 @@ fn main() {
     app.add_plugins(LightPlugin);
     app.add_plugins(TerrainPlugin);
     app.add_plugins(SelectorPlugin);
+    app.add_plugins(TileRenderPlugin);
 
     app.run();
 }
