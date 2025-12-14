@@ -1,9 +1,9 @@
-mod temp;
-
 use bevy::{
     DefaultPlugins,
-    app::{App, Startup},
+    app::App,
 };
+
+use pixelplanet::plugins::*;
 
 fn main() {
     let mut app = App::new();
@@ -12,10 +12,10 @@ fn main() {
     app.add_plugins(bevy_map_camera::MapCameraPlugin);
     app.add_plugins(bevy_vox_scene::VoxScenePlugin::default());
 
-    app.add_plugins(pixelplanet::camera::CameraPlugin);
-    app.add_plugins(pixelplanet::light::LightPlugin);
-    app.add_plugins(pixelplanet::terrain::TerrainPlugin);
-    app.add_plugins(pixelplanet::selector::SelectorPlugin);
+    app.add_plugins(camera::CameraPlugin);
+    app.add_plugins(light::LightPlugin);
+    app.add_plugins(terrain::TerrainPlugin);
+    app.add_plugins(selector::SelectorPlugin);
 
     app.run();
 }
