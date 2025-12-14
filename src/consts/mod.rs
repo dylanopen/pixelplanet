@@ -1,3 +1,3 @@
-pub mod tilemap;
+use bevy::math::IVec2;
 
-pub use tilemap::*;
+pub const TILEMAP_SIZE: IVec2 = IVec2::new(64, 64);
