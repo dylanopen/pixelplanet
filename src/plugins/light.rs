@@ -1,13 +1,9 @@
 
 use bevy::{
     app::{Plugin, Startup},
-    ecs::system::Commands,
-    light::{AmbientLight, CascadeShadowConfigBuilder, DirectionalLight, light_consts},
-    log::info,
-    math::Vec3,
-    transform::components::Transform,
-    utils::default,
 };
+
+use crate::spawn::{ambient_light::spawn_ambient_light, sun_light::spawn_sun_light};
 
 pub struct LightPlugin;
 
