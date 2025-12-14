@@ -5,3 +5,4 @@ pub mod messages;
 pub mod plugins;
 pub mod resources;
 pub mod spawn;
+pub mod consts;
