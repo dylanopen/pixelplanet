@@ -1,0 +1,16 @@
+use bevy::{ecs::{message::MessageWriter, system::Res}, input::{ButtonInput, mouse::MouseButton}};
+
+use crate::{messages::click_tile::ClickTileMessage, resources::current_hovered_tile::CurrentHoveredTile};
+
+pub fn on_left_click(
+    current_hovered_tile: Res<CurrentHoveredTile>,
+    buttons: Res<ButtonInput<MouseButton>>,
+    mut click_tile_mw: MessageWriter<ClickTileMessage>,
+) {
+    if !buttons.just_pressed(MouseButton::Left) {
+        return;
+    }
+    if let Some(pos) = current_hovered_tile.pos {
+        click_tile_mw.write(ClickTileMessage { pos });
+    }
+}

@@ -2,7 +2,7 @@ use bevy::app::{App, Plugin, Startup, Update};
 
 use crate::{
     message_readers::cursor_tile_hover::update_tile_selected_indicator,
-    message_writers::cursor_tile_hover::map_cursor_hover,
+    message_writers::{click_tile::on_left_click, cursor_tile_hover::map_cursor_hover},
     messages::cursor_tile_hover::CursorTileHoverMessage, spawn::selector_mesh::spawn_selector_mesh,
 };
 
@@ -14,5 +14,6 @@ impl Plugin for SelectorPlugin {
         app.add_systems(Startup, spawn_selector_mesh);
         app.add_systems(Update, map_cursor_hover);
         app.add_systems(Update, update_tile_selected_indicator);
+        app.add_systems(Update, on_left_click);
     }
 }
