@@ -1,3 +1,8 @@
+use bevy::{ecs::resource::Resource, math::IVec2};
+
+use crate::{components::{Tile, TileType}, consts::TILEMAP_SIZE};
+
+
 #[derive(Resource)]
 pub struct Tilemap {
     pub size: IVec2,
@@ -7,8 +12,8 @@ pub struct Tilemap {
 impl Tilemap {
     pub fn new(size: IVec2) -> Self {
         let mut tiles = Vec::new();
-        for y in 0..size.y {
-            for x in 0..size.x {
+        for _ in 0..size.y {
+            for _ in 0..size.x {
                 tiles.push(Tile {
                     tiletype: TileType::None,
                 });
