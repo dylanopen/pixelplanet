@@ -11,6 +11,10 @@ impl Plugin for SelectorPlugin {
         app.add_systems(Update, message_writers::cursor_tile_hover::map_cursor_hover);
         app.add_systems(
             Update,
+            message_readers::cursor_tile_hover::update_current_hovered_tile,
+        );
+        app.add_systems(
+            Update,
             message_readers::cursor_tile_hover::update_tile_selected_indicator,
         );
 
