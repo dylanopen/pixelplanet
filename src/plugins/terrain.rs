@@ -1,18 +1,8 @@
 use bevy::{
     app::{App, Plugin, Startup},
-    asset::Assets,
-    color::Color,
-    ecs::{
-        component::Component,
-        system::{Commands, ResMut},
-    },
-    math::primitives::{Cuboid, Plane3d},
-    mesh::{Mesh, Mesh3d, Meshable},
-    pbr::{MeshMaterial3d, StandardMaterial},
-    transform::components::Transform,
-    utils::default,
 };
-use rand::{Rng, rng};
+
+use crate::spawn::{ground_plane::spawn_ground_plane, terrain_voxels::spawn_terrain_voxels};
 
 pub struct TerrainPlugin;
 
