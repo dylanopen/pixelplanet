@@ -1,6 +1,6 @@
 use bevy::{asset::AssetServer, ecs::{message::MessageReader, system::{Commands, ResMut}}, math::Vec3, scene::SceneRoot, transform::components::Transform};
 
-use crate::messages::click_tile::ClickTileMessage;
+use crate::messages::ClickTileMessage;
 
 pub fn place_road(
     mut commands: Commands,

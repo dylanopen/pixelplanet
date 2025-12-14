@@ -7,8 +7,8 @@ use bevy::{
 };
 
 use crate::{
-    components::{ground::Ground, main_camera::MainCamera},
-    messages::cursor_tile_hover::CursorTileHoverMessage,
+    components::{Ground, MainCamera},
+    messages::CursorTileHoverMessage,
 };
 
 pub fn map_cursor_hover(

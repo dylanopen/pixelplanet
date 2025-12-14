@@ -1,6 +1,6 @@
 use bevy::{ecs::{message::MessageWriter, system::Res}, input::{ButtonInput, mouse::MouseButton}};
 
-use crate::{messages::click_tile::ClickTileMessage, resources::current_hovered_tile::CurrentHoveredTile};
+use crate::{messages::ClickTileMessage, resources::CurrentHoveredTile};
 
 pub fn on_left_click(
     current_hovered_tile: Res<CurrentHoveredTile>,

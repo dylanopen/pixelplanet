@@ -12,10 +12,10 @@ fn main() {
     messages::registry::register_messages(&mut app);
     resources::registry::init_resources(&mut app);
 
-    app.add_plugins(camera::CameraPlugin);
-    app.add_plugins(light::LightPlugin);
-    app.add_plugins(terrain::TerrainPlugin);
-    app.add_plugins(selector::SelectorPlugin);
+    app.add_plugins(CameraPlugin);
+    app.add_plugins(LightPlugin);
+    app.add_plugins(TerrainPlugin);
+    app.add_plugins(SelectorPlugin);
 
     app.run();
 }

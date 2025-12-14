@@ -1,6 +1,6 @@
 use bevy::app::{App, Plugin, Startup};
 
-use crate::spawn::{ground_plane::spawn_ground_plane, terrain_voxels::spawn_terrain_voxels};
+use crate::spawn::{spawn_ground_plane, spawn_terrain_voxels};
 
 pub struct TerrainPlugin;
 

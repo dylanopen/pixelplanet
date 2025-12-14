@@ -5,8 +5,8 @@ use bevy::{
 };
 
 use crate::{
-    components::tile_selected_indicator::TileSelectedIndicator,
-    messages::cursor_tile_hover::CursorTileHoverMessage,
+    components::TileSelectedIndicator,
+    messages::CursorTileHoverMessage,
 };
 
 pub fn update_tile_selected_indicator(
