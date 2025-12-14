@@ -1,6 +1,6 @@
 use bevy::{DefaultPlugins, app::App};
 
-use pixelplanet::{messages, plugins::*};
+use pixelplanet::{messages, plugins::*, resources};
 
 fn main() {
     let mut app = App::new();
@@ -10,6 +10,7 @@ fn main() {
     app.add_plugins(bevy_vox_scene::VoxScenePlugin::default());
 
     messages::registry::register_messages(&mut app);
+    resources::registry::init_resources(&mut app);
 
     app.add_plugins(camera::CameraPlugin);
     app.add_plugins(light::LightPlugin);
