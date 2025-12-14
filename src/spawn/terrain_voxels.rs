@@ -10,15 +10,15 @@ use bevy::{
 };
 use rand::{Rng, rng};
 
-use crate::components::terrain_voxel::TerrainVoxel;
+use crate::{components::terrain_voxel::TerrainVoxel, consts::TILEMAP_SIZE};
 
 pub fn spawn_terrain_voxels(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    for x in -32..32 {
-        for z in -32..32 {
+    for x in 0..TILEMAP_SIZE.x {
+        for z in 0..TILEMAP_SIZE.y {
             spawn_grass_voxel(
                 &mut commands,
                 &mut meshes,
