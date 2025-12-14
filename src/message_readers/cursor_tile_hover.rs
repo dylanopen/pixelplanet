@@ -4,10 +4,7 @@ use bevy::{
     transform::components::Transform,
 };
 
-use crate::{
-    components::TileSelectedIndicator,
-    messages::CursorTileHoverMessage,
-};
+use crate::{components::TileSelectedIndicator, messages::CursorTileHoverMessage};
 
 pub fn update_tile_selected_indicator(
     mut indicator_transform: Single<&mut Transform, With<TileSelectedIndicator>>,

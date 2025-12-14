@@ -1,6 +1,5 @@
 use bevy::{ecs::message::Message, math::IVec2};
 
-
 #[derive(Message)]
 pub struct ClickTileMessage {
     pub pos: IVec2,
@@ -25,4 +24,3 @@ impl From<(i32, i32)> for ClickTileMessage {
         }
     }
 }
-

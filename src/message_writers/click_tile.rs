@@ -1,4 +1,7 @@
-use bevy::{ecs::{message::MessageWriter, system::Res}, input::{ButtonInput, mouse::MouseButton}};
+use bevy::{
+    ecs::{message::MessageWriter, system::Res},
+    input::{ButtonInput, mouse::MouseButton},
+};
 
 use crate::{messages::ClickTileMessage, resources::CurrentHoveredTile};
 
