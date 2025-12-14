@@ -1,7 +1,16 @@
-use bevy::{asset::{AssetServer, Handle}, ecs::{message::MessageWriter, resource::Resource, system::ResMut}, math::IVec2, scene::Scene};
+use bevy::{
+    asset::{AssetServer, Handle},
+    ecs::{message::MessageWriter, resource::Resource, system::ResMut},
+    log::info,
+    math::IVec2,
+    scene::Scene,
+};
 
-use crate::{components::{Tile, TileType}, consts::TILEMAP_SIZE, messages::{UpdateTileMessage, UpdateTileModelMessage}};
-
+use crate::{
+    components::{Tile, TileType},
+    consts::TILEMAP_SIZE,
+    messages::{UpdateTileMessage, UpdateTileModelMessage},
+};
 
 #[derive(Resource)]
 pub struct Tilemap {
@@ -30,16 +39,22 @@ impl Tilemap {
         self.tiles.get_mut(index as usize)?.as_mut()
     }
 
-    pub fn is_empty(&self, pos: IVec2) -> Option<bool> {
-        let tile = self.get_tile(pos);
-        if let Some(t) = tile {
-            match t.tiletype {
-                TileType::None => Some(true),
-                _ => Some(false),
-            }
-        } else {
-            None
-        }
+    pub fn is_empty(&self, pos: IVec2) -> bool {
+        self.get_tile(pos).is_some()
+    }
+
+    pub fn set_tile_type(
+        &mut self,
+        pos: IVec2,
+        tiletype: TileType,
+        update_tile_mw: &mut MessageWriter<UpdateTileMessage>,
+        update_tile_model_mw: &mut MessageWriter<UpdateTileModelMessage>,
+    ) -> Option<()> {
+        self.get_tile_mut(pos)?.tiletype = tiletype;
+        self.update_neighbors(pos, update_tile_mw);
+        update_tile_mw.write(UpdateTileMessage { pos });
+        update_tile_model_mw.write(UpdateTileModelMessage { pos });
+        Some(())
     }
 
     pub fn set_tile(
@@ -52,14 +67,18 @@ impl Tilemap {
         let index = pos.y * self.size.x + pos.x;
         if let Some(t) = self.tiles.get_mut(index as usize) {
             *t = tile;
-            self.update_neighbors(pos, update_tile_mw); 
+            self.update_neighbors(pos, update_tile_mw);
             update_tile_model_mw.write(UpdateTileModelMessage { pos });
             return Some(());
         }
         None
     }
 
-    pub fn get_model(&self, asset_server: &ResMut<AssetServer>, pos: IVec2) -> Option<Handle<Scene>> {
+    pub fn get_model(
+        &self,
+        asset_server: &ResMut<AssetServer>,
+        pos: IVec2,
+    ) -> Option<Handle<Scene>> {
         let tile = self.get_tile(pos)?;
         tile.get_model(asset_server)
     }
@@ -86,10 +105,18 @@ impl Tilemap {
 
         for dir in directions.iter() {
             let neighbor_pos = pos + *dir;
-            if neighbor_pos.x < 0 { continue; }
-            if neighbor_pos.y < 0 { continue; }
-            if neighbor_pos.x >= self.size.x { continue; }
-            if neighbor_pos.y >= self.size.y { continue; }
+            if neighbor_pos.x < 0 {
+                continue;
+            }
+            if neighbor_pos.y < 0 {
+                continue;
+            }
+            if neighbor_pos.x >= self.size.x {
+                continue;
+            }
+            if neighbor_pos.y >= self.size.y {
+                continue;
+            }
             update_tile_mw.write(UpdateTileMessage { pos: neighbor_pos });
         }
     }
@@ -100,4 +127,3 @@ impl Default for Tilemap {
         Tilemap::new(TILEMAP_SIZE)
     }
 }
-

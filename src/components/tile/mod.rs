@@ -1,6 +1,10 @@
 pub mod road_variant;
 
-use bevy::{asset::{AssetServer, Handle}, ecs::{entity::Entity, system::ResMut}, scene::Scene};
+use bevy::{
+    asset::{AssetServer, Handle},
+    ecs::{entity::Entity, system::ResMut},
+    scene::Scene,
+};
 pub use road_variant::RoadVariant;
 
 #[derive(Debug, Clone)]
@@ -11,22 +15,21 @@ pub struct Tile {
 
 impl Tile {
     pub fn new(tiletype: TileType) -> Self {
-        Self { tiletype, entity: None }
+        Self {
+            tiletype,
+            entity: None,
+        }
     }
 
     pub fn get_model_name(&self) -> Option<String> {
         match &self.tiletype {
-            TileType::None => None,
             TileType::Road(variant) => Some(variant.get_model_name()),
         }
     }
 
     pub fn get_model_path(&self) -> Option<String> {
         let model_name = self.get_model_name()?;
-        Some(format!(
-            "tiles/{}.vox",
-            model_name
-        ))
+        Some(format!("tiles/{}.vox", model_name))
     }
 
     pub fn get_model(&self, asset_server: &ResMut<AssetServer>) -> Option<Handle<Scene>> {
@@ -36,9 +39,7 @@ impl Tile {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TileType {
-    None,
     Road(RoadVariant),
 }
-

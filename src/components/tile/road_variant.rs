@@ -1,19 +1,12 @@
-#[derive(Debug, Clone)]
-pub enum RoadVariant {
-    StraightNS,
-    StraightEW,
-}
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct RoadVariant(pub i32);
 
 impl RoadVariant {
     pub fn is_straight(&self) -> bool {
-        matches!(self, RoadVariant::StraightNS | RoadVariant::StraightEW)
+        matches!(self.0, 1 | 2)
     }
 
     pub fn get_model_name(&self) -> String {
-        match self {
-            RoadVariant::StraightNS => "road1".to_owned(),
-            RoadVariant::StraightEW => "road2".to_owned(),
-        }
+        format!("road{}", self.0)
     }
 }
-

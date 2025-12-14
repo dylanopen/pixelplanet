@@ -1,7 +1,7 @@
 use bevy::app::{App, Plugin, Startup};
 
-use crate::spawn::spawn_main_camera;
 use crate::spawn::configure_camera_controls;
+use crate::spawn::spawn_main_camera;
 
 pub struct CameraPlugin;
 

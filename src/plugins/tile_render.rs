@@ -1,6 +1,8 @@
 use bevy::app::{App, Plugin, Startup, Update};
 
-use crate::message_readers::{set_tile::set_tile_in_tilemap, update_tile::update_tiles, update_tile_model::update_tile_models};
+use crate::message_readers::{
+    set_tile::set_tile_in_tilemap, update_tile::update_tiles, update_tile_model::update_tile_models,
+};
 
 pub struct TileRenderPlugin;
 
