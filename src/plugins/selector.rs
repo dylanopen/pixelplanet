@@ -1,26 +1,8 @@
 use bevy::{
     app::{App, Plugin, Startup, Update},
-    asset::Assets,
-    camera::Camera,
-    color::Color,
-    ecs::{
-        component::Component,
-        message::{Message, MessageReader, MessageWriter},
-        query::With,
-        system::{Commands, ResMut, Single},
-    },
-    light::NotShadowCaster,
-    math::{
-        IVec2, Vec3, Vec3Swizzles,
-        primitives::{Cuboid, InfinitePlane3d},
-    },
-    mesh::{Mesh, Mesh3d},
-    pbr::{MeshMaterial3d, StandardMaterial},
-    transform::components::{GlobalTransform, Transform},
-    window::Window,
 };
 
-use crate::{camera::MainCamera, terrain::Ground};
+use crate::{message_readers::cursor_tile_hover::update_tile_selected_indicator, message_writers::cursor_tile_hover::map_cursor_hover, messages::cursor_tile_hover::CursorTileHoverMessage, spawn::selector_mesh::spawn_selector_mesh};
 
 pub struct SelectorPlugin;
 
