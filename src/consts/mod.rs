@@ -6,3 +6,4 @@ pub const MODEL_SIZE: Vec3 = Vec3::splat(64.0);
 pub const IVEC2_UP: IVec2 = IVec2::new(0, 1);
 pub const IVEC2_DOWN: IVec2 = IVec2::new(0, -1);
 pub const IVEC2_LEFT: IVec2 = IVec2::new(-1, 0);
+pub const IVEC2_RIGHT: IVec2 = IVec2::new(1, 0);
