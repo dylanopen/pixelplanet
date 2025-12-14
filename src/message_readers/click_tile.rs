@@ -20,7 +20,7 @@ pub fn place_road(
         let road_handle = asset_server.load("buildings/road1.vox");
         commands.spawn((
             SceneRoot(road_handle),
-            Transform::from_xyz(msg.pos.x as f32 + 0.5, 2.0, msg.pos.y as f32 + 0.5)
+            Transform::from_xyz(msg.pos.x as f32 + 0.5, 1.0, msg.pos.y as f32 + 0.5)
                 .with_scale(Vec3::splat(1.0 / 64.0)),
         ));
     }
