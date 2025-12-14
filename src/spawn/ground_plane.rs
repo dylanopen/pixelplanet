@@ -1,4 +1,10 @@
-use bevy::{asset::Assets, ecs::system::{Commands, ResMut}, math::primitives::Plane3d, mesh::{Mesh, Mesh3d, Meshable}, transform::components::Transform};
+use bevy::{
+    asset::Assets,
+    ecs::system::{Commands, ResMut},
+    math::primitives::Plane3d,
+    mesh::{Mesh, Mesh3d, Meshable},
+    transform::components::Transform,
+};
 
 use crate::components::ground::Ground;
 
@@ -9,4 +15,3 @@ pub fn spawn_ground_plane(mut commands: Commands, mut meshes: ResMut<Assets<Mesh
         Ground,
     ));
 }
-

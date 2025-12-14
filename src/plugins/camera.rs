@@ -1,6 +1,4 @@
-use bevy::{
-    app::{Plugin, Startup},
-};
+use bevy::app::{Plugin, Startup};
 
 use crate::spawn::main_camera::spawn_camera;
 
@@ -11,4 +9,3 @@ impl Plugin for CameraPlugin {
         app.add_systems(Startup, spawn_camera);
     }
 }
-

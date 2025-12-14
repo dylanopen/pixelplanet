@@ -1,7 +1,4 @@
-use bevy::{
-    DefaultPlugins,
-    app::App,
-};
+use bevy::{DefaultPlugins, app::App};
 
 use pixelplanet::plugins::*;
 

@@ -1,7 +1,4 @@
-
-use bevy::{
-    app::{Plugin, Startup},
-};
+use bevy::app::{Plugin, Startup};
 
 use crate::spawn::{ambient_light::spawn_ambient_light, sun_light::spawn_sun_light};
 
@@ -13,4 +10,3 @@ impl Plugin for LightPlugin {
         app.add_systems(Startup, spawn_sun_light);
     }
 }
-

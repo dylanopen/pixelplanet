@@ -7,4 +7,3 @@ use crate::components::main_camera::MainCamera;
 pub fn spawn_camera(mut commands: bevy::ecs::system::Commands) {
     commands.spawn((MapCamera, MainCamera, Msaa::Off, OutlineCamera));
 }
-

@@ -8,4 +8,3 @@ pub fn spawn_ambient_light(mut commands: Commands) {
         affects_lightmapped_meshes: false,
     });
 }
-

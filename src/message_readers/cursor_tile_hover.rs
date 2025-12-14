@@ -1,6 +1,13 @@
-use bevy::{ecs::{message::MessageReader, query::With, system::Single}, math::Vec3, transform::components::Transform};
+use bevy::{
+    ecs::{message::MessageReader, query::With, system::Single},
+    math::Vec3,
+    transform::components::Transform,
+};
 
-use crate::{components::tile_selected_indicator::TileSelectedIndicator, messages::cursor_tile_hover::CursorTileHoverMessage};
+use crate::{
+    components::tile_selected_indicator::TileSelectedIndicator,
+    messages::cursor_tile_hover::CursorTileHoverMessage,
+};
 
 pub fn update_tile_selected_indicator(
     mut indicator_transform: Single<&mut Transform, With<TileSelectedIndicator>>,
@@ -15,4 +22,3 @@ pub fn update_tile_selected_indicator(
         );
     }
 }
-

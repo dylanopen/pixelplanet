@@ -1,8 +1,10 @@
-use bevy::{
-    app::{App, Plugin, Startup, Update},
-};
+use bevy::app::{App, Plugin, Startup, Update};
 
-use crate::{message_readers::cursor_tile_hover::update_tile_selected_indicator, message_writers::cursor_tile_hover::map_cursor_hover, messages::cursor_tile_hover::CursorTileHoverMessage, spawn::selector_mesh::spawn_selector_mesh};
+use crate::{
+    message_readers::cursor_tile_hover::update_tile_selected_indicator,
+    message_writers::cursor_tile_hover::map_cursor_hover,
+    messages::cursor_tile_hover::CursorTileHoverMessage, spawn::selector_mesh::spawn_selector_mesh,
+};
 
 pub struct SelectorPlugin;
 
@@ -14,4 +16,3 @@ impl Plugin for SelectorPlugin {
         app.add_systems(Update, update_tile_selected_indicator);
     }
 }
-

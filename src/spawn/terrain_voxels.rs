@@ -1,4 +1,13 @@
-use bevy::{asset::Assets, color::Color, ecs::system::{Commands, ResMut}, math::primitives::Cuboid, mesh::{Mesh, Mesh3d}, pbr::{MeshMaterial3d, StandardMaterial}, transform::components::Transform, utils::default};
+use bevy::{
+    asset::Assets,
+    color::Color,
+    ecs::system::{Commands, ResMut},
+    math::primitives::Cuboid,
+    mesh::{Mesh, Mesh3d},
+    pbr::{MeshMaterial3d, StandardMaterial},
+    transform::components::Transform,
+    utils::default,
+};
 use rand::{Rng, rng};
 
 use crate::components::terrain_voxel::TerrainVoxel;

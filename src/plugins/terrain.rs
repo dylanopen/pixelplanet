@@ -1,6 +1,4 @@
-use bevy::{
-    app::{App, Plugin, Startup},
-};
+use bevy::app::{App, Plugin, Startup};
 
 use crate::spawn::{ground_plane::spawn_ground_plane, terrain_voxels::spawn_terrain_voxels};
 
@@ -12,4 +10,3 @@ impl Plugin for TerrainPlugin {
         app.add_systems(Startup, spawn_ground_plane);
     }
 }
-

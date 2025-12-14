@@ -4,4 +4,3 @@ use bevy::{ecs::message::Message, math::IVec2};
 pub struct CursorTileHoverMessage {
     pub pos: IVec2,
 }
-
