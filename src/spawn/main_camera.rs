@@ -5,5 +5,10 @@ use bevy_mesh_outline::OutlineCamera;
 use crate::components::main_camera::MainCamera;
 
 pub fn spawn_main_camera(mut commands: bevy::ecs::system::Commands) {
-    commands.spawn((MapCamera, MainCamera, Msaa::Off, OutlineCamera));
+    commands.spawn((
+            MainCamera,
+            MapCamera,
+            Msaa::Off,
+            OutlineCamera,
+    ));
 }
