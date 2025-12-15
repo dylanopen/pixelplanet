@@ -68,9 +68,9 @@ fn update_road_tile(
         6
     } else if neighbor_down && neighbor_right {
         3
-    } else if neighbor_left && neighbor_right {
+    } else if neighbor_left || neighbor_right {
         2
-    } else if neighbor_up && neighbor_down {
+    } else if neighbor_up || neighbor_down {
         1
     } else {
         0
@@ -78,6 +78,7 @@ fn update_road_tile(
 
     if let Some(tile) = tilemap.get_tile_mut(pos) {
         tile.tiletype = TileType::Road(RoadVariant(variant));
+        dbg!(&tile.tiletype);
         update_tile_model_mw.write(UpdateTileModelMessage { pos });
     }
 }

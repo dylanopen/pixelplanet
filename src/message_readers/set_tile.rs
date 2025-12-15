@@ -12,7 +12,6 @@ pub fn set_tile_in_tilemap(
     mut set_tile_mr: MessageReader<SetTileMessage>,
     mut tilemap: ResMut<Tilemap>,
     mut update_tile_mw: MessageWriter<UpdateTileMessage>,
-    mut update_tile_model_mw: MessageWriter<UpdateTileModelMessage>,
 ) {
     for msg in set_tile_mr.read() {
         let pos = msg.pos;
@@ -21,7 +20,6 @@ pub fn set_tile_in_tilemap(
             pos,
             tiletype,
             &mut update_tile_mw,
-            &mut update_tile_model_mw,
         );
     }
 }

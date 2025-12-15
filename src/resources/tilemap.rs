@@ -29,14 +29,33 @@ impl Tilemap {
         Tilemap { size, tiles }
     }
 
-    pub fn get_tile(&self, pos: IVec2) -> Option<&Tile> {
+    pub fn get_index(&self, pos: IVec2) -> Option<usize> {
+        if pos.x < 0 || pos.y < 0 {
+            return None;
+        }
+        if pos.x >= self.size.x || pos.y >= self.size.y {
+            return None;
+        }
         let index = pos.y * self.size.x + pos.x;
-        self.tiles.get(index as usize)?.as_ref()
+        if index < (self.size.x * self.size.y) {
+            Some(index as usize)
+        } else {
+            None
+        }
+    }
+
+    pub fn within_range(&self, pos: IVec2) -> bool {
+        self.get_index(pos).is_some()
+    }
+
+    pub fn get_tile(&self, pos: IVec2) -> Option<&Tile> {
+        let index = self.get_index(pos)?;
+        self.tiles.get(index)?.as_ref()
     }
 
     pub fn get_tile_mut(&mut self, pos: IVec2) -> Option<&mut Tile> {
-        let index = pos.y * self.size.x + pos.x;
-        self.tiles.get_mut(index as usize)?.as_mut()
+        let index = self.get_index(pos)?;
+        self.tiles.get_mut(index)?.as_mut()
     }
 
     pub fn is_empty(&self, pos: IVec2) -> bool {
@@ -48,14 +67,13 @@ impl Tilemap {
         pos: IVec2,
         tiletype: TileType,
         update_tile_mw: &mut MessageWriter<UpdateTileMessage>,
-        update_tile_model_mw: &mut MessageWriter<UpdateTileModelMessage>,
     ) -> Option<()> {
         let entity = match self.get_tile_mut(pos) {
             Some(tile) => tile.entity,
             None => None,
         };
         let tile = Tile { tiletype, entity };
-        self.set_tile(pos, Some(tile), update_tile_mw, update_tile_model_mw);
+        self.set_tile(pos, Some(tile), update_tile_mw);
         Some(())
     }
 
@@ -64,14 +82,12 @@ impl Tilemap {
         pos: IVec2,
         tile: Option<Tile>,
         update_tile_mw: &mut MessageWriter<UpdateTileMessage>,
-        update_tile_model_mw: &mut MessageWriter<UpdateTileModelMessage>,
     ) -> Option<()> {
-        let index = pos.y * self.size.x + pos.x;
-        if let Some(t) = self.tiles.get_mut(index as usize) {
+        let index = self.get_index(pos)?;
+        if let Some(t) = self.tiles.get_mut(index) {
             *t = tile;
             self.update_self(pos, update_tile_mw);
             self.update_neighbors(pos, update_tile_mw);
-            update_tile_model_mw.write(UpdateTileModelMessage { pos });
             return Some(());
         }
         None
