@@ -18,6 +18,7 @@ pub fn update_tile_models(
         println!("Updating tile model at position {:?}", msg.pos);
         let pos = msg.pos;
         let tile = tilemap.get_tile_mut(pos).unwrap();
+        dbg!(&tile.tiletype);
         let tile_model = tile.get_model(&asset_server).unwrap();
         if let Some(entity) = tile.entity {
             commands.entity(entity).despawn();

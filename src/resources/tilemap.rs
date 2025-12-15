@@ -1,7 +1,7 @@
 use bevy::{
     asset::{AssetServer, Handle},
     ecs::{message::MessageWriter, resource::Resource, system::ResMut},
-    log::info,
+    log::{info, warn},
     math::IVec2,
     scene::Scene,
 };
@@ -50,10 +50,12 @@ impl Tilemap {
         update_tile_mw: &mut MessageWriter<UpdateTileMessage>,
         update_tile_model_mw: &mut MessageWriter<UpdateTileModelMessage>,
     ) -> Option<()> {
-        self.get_tile_mut(pos)?.tiletype = tiletype;
-        self.update_neighbors(pos, update_tile_mw);
-        update_tile_mw.write(UpdateTileMessage { pos });
-        update_tile_model_mw.write(UpdateTileModelMessage { pos });
+        let entity = match self.get_tile_mut(pos) {
+            Some(tile) => tile.entity,
+            None => None,
+        };
+        let tile = Tile { tiletype, entity };
+        self.set_tile(pos, Some(tile), update_tile_mw, update_tile_model_mw);
         Some(())
     }
 
@@ -67,6 +69,7 @@ impl Tilemap {
         let index = pos.y * self.size.x + pos.x;
         if let Some(t) = self.tiles.get_mut(index as usize) {
             *t = tile;
+            self.update_self(pos, update_tile_mw);
             self.update_neighbors(pos, update_tile_mw);
             update_tile_model_mw.write(UpdateTileModelMessage { pos });
             return Some(());
@@ -91,7 +94,11 @@ impl Tilemap {
         tile.get_model_path()
     }
 
-    fn update_neighbors(&self, pos: IVec2, update_tile_mw: &mut MessageWriter<UpdateTileMessage>) {
+    pub fn update_self(&self, pos: IVec2, update_tile_mw: &mut MessageWriter<UpdateTileMessage>) {
+        update_tile_mw.write(UpdateTileMessage { pos });
+    }
+
+    pub fn update_neighbors(&self, pos: IVec2, update_tile_mw: &mut MessageWriter<UpdateTileMessage>) {
         let directions = [
             IVec2::new(0, 1),
             IVec2::new(1, 0),
