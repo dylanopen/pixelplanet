@@ -53,24 +53,24 @@ fn update_road_tile(
     let variant = if neighbor_up && neighbor_down && neighbor_left && neighbor_right {
         11
     } else if neighbor_up && neighbor_down && neighbor_left {
-        10
+        7
     } else if neighbor_up && neighbor_down && neighbor_right {
         9
     } else if neighbor_left && neighbor_right && neighbor_up {
-        8
+        10
     } else if neighbor_left && neighbor_right && neighbor_down {
-        7
-    } else if neighbor_up && neighbor_down {
-        6
-    } else if neighbor_left && neighbor_right {
-        5
+        8
     } else if neighbor_up && neighbor_left {
-        4
+        5
     } else if neighbor_up && neighbor_right {
-        3
+        4
     } else if neighbor_down && neighbor_left {
-        2
+        6
     } else if neighbor_down && neighbor_right {
+        3
+    } else if neighbor_left && neighbor_right {
+        2
+    } else if neighbor_up && neighbor_down {
         1
     } else {
         0
