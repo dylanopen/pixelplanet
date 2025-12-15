@@ -37,7 +37,9 @@ pub fn map_cursor_hover(
     let pos = IVec2::new(point.x as i32, point.y as i32);
     if tilemap.within_range(pos) {
         hover_mw.write(CursorTileHoverMessage {
-            pos
+            pos: Some(pos)
         });
+    } else {
+        hover_mw.write(CursorTileHoverMessage { pos: None });
     }
 }
