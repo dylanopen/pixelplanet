@@ -21,7 +21,6 @@ pub fn update_tiles(
         let Some(tile) = tile_opt else {
             continue;
         };
-        dbg!(&tile.tiletype);
         match tile.tiletype {
             TileType::Road(_) => {
                 update_road_tile(&mut tilemap, pos, &mut update_tile_model_mw);
@@ -76,7 +75,6 @@ fn update_road_tile(
 
     if let Some(tile) = tilemap.get_tile_mut(pos) {
         tile.tiletype = TileType::Road(RoadVariant(variant));
-        dbg!(&tile.tiletype);
         update_tile_model_mw.write(UpdateTileModelMessage { pos });
     }
 }
