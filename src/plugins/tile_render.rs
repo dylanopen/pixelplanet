@@ -1,7 +1,7 @@
 use bevy::app::{App, Plugin, Update};
 use bevy::ecs::schedule::IntoScheduleConfigs;
 
-use crate::message_readers::{
+use crate::executors::{
     set_tile::set_tile_in_tilemap, update_tile::update_tiles, update_tile_model::update_tile_models,
 };
 
