@@ -1,9 +1,14 @@
 use bevy::{
-    asset::AssetServer, ecs::{
+    asset::AssetServer,
+    ecs::{
         entity::ContainsEntity,
         message::MessageReader,
         system::{Commands, Res, ResMut},
-    }, log::info, math::Vec3, scene::SceneRoot, transform::components::Transform
+    },
+    log::info,
+    math::Vec3,
+    scene::SceneRoot,
+    transform::components::Transform,
 };
 
 use crate::{consts::MODEL_SIZE, messages::UpdateTileModelMessage, resources::Tilemap};

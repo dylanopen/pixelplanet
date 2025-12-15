@@ -1,8 +1,6 @@
-use bevy::{
-    ecs::{
-        message::{MessageReader, MessageWriter},
-        system::ResMut,
-    },
+use bevy::ecs::{
+    message::{MessageReader, MessageWriter},
+    system::ResMut,
 };
 
 use crate::{

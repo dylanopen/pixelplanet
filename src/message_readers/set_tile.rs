@@ -16,10 +16,6 @@ pub fn set_tile_in_tilemap(
     for msg in set_tile_mr.read() {
         let pos = msg.pos;
         let tiletype = msg.tiletype.clone();
-        tilemap.set_tile_type(
-            pos,
-            tiletype,
-            &mut update_tile_mw,
-        );
+        tilemap.set_tile_type(pos, tiletype, &mut update_tile_mw);
     }
 }

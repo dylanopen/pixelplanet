@@ -114,7 +114,11 @@ impl Tilemap {
         update_tile_mw.write(UpdateTileMessage { pos });
     }
 
-    pub fn update_neighbors(&self, pos: IVec2, update_tile_mw: &mut MessageWriter<UpdateTileMessage>) {
+    pub fn update_neighbors(
+        &self,
+        pos: IVec2,
+        update_tile_mw: &mut MessageWriter<UpdateTileMessage>,
+    ) {
         let directions = [
             IVec2::new(0, 1),
             IVec2::new(1, 0),

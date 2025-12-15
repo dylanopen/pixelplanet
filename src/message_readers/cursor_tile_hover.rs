@@ -1,9 +1,12 @@
 use bevy::{
-    camera::visibility::Visibility, ecs::{
+    camera::visibility::Visibility,
+    ecs::{
         message::MessageReader,
         query::With,
         system::{ResMut, Single},
-    }, math::Vec3, transform::components::Transform
+    },
+    math::Vec3,
+    transform::components::Transform,
 };
 
 use crate::{
@@ -18,16 +21,13 @@ pub fn update_tile_selected_indicator(
     for hover_msg in hover_mr.read() {
         match hover_msg.pos {
             Some(pos) => {
-                indicator_query.0.translation = Vec3::new(
-                    pos.x as f32 + 0.5,
-                    1.52,
-                    pos.y as f32 + 0.5,
-                );
+                indicator_query.0.translation =
+                    Vec3::new(pos.x as f32 + 0.5, 1.52, pos.y as f32 + 0.5);
                 *indicator_query.1 = Visibility::Visible;
-            },
+            }
             None => {
                 *indicator_query.1 = Visibility::Hidden;
-            },
+            }
         }
     }
 }

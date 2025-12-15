@@ -1,14 +1,19 @@
 use bevy::{
     camera::Camera,
-    ecs::{message::MessageWriter, query::With, system::{Res, Single}},
-    math::{primitives::InfinitePlane3d, IVec2, Vec3Swizzles},
+    ecs::{
+        message::MessageWriter,
+        query::With,
+        system::{Res, Single},
+    },
+    math::{IVec2, Vec3Swizzles, primitives::InfinitePlane3d},
     transform::components::GlobalTransform,
     window::Window,
 };
 
 use crate::{
     components::{Ground, MainCamera},
-    messages::CursorTileHoverMessage, resources::Tilemap,
+    messages::CursorTileHoverMessage,
+    resources::Tilemap,
 };
 
 pub fn map_cursor_hover(
@@ -36,9 +41,7 @@ pub fn map_cursor_hover(
     let point = ray.get_point(distance).floor().xz();
     let pos = IVec2::new(point.x as i32, point.y as i32);
     if tilemap.within_range(pos) {
-        hover_mw.write(CursorTileHoverMessage {
-            pos: Some(pos)
-        });
+        hover_mw.write(CursorTileHoverMessage { pos: Some(pos) });
     } else {
         hover_mw.write(CursorTileHoverMessage { pos: None });
     }
