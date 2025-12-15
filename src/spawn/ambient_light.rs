@@ -4,7 +4,7 @@ pub fn spawn_ambient_light(mut commands: Commands) {
     info!("Spawning ambient light");
     commands.insert_resource(AmbientLight {
         color: bevy::color::Color::WHITE,
-        brightness: 100.0,
+        brightness: 750.0,
         affects_lightmapped_meshes: false,
     });
 }

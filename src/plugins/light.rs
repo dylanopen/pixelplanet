@@ -1,6 +1,6 @@
 use bevy::app::{App, Plugin, Startup};
 
-use crate::spawn::{spawn_ambient_light, spawn_sun_light};
+use crate::spawn::spawn_ambient_light;
 
 pub struct LightPlugin;
 

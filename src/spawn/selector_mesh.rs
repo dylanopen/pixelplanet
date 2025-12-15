@@ -20,7 +20,7 @@ pub fn spawn_selector_mesh(
     commands.spawn((
         TileSelectedIndicator,
         Mesh3d(meshes.add(Cuboid::new(1.02, 1.02, 1.02))),
-        MeshMaterial3d(materials.add(Color::linear_rgba(1.0, 1.0, 1.0, 0.4))),
+        MeshMaterial3d(materials.add(Color::linear_rgba(1.0, 1.0, 1.0, 0.25))),
         transform,
         NotShadowCaster,
     ));
