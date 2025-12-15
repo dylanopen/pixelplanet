@@ -1,11 +1,9 @@
 use bevy::{
     asset::AssetServer,
     ecs::{
-        entity::ContainsEntity,
         message::MessageReader,
-        system::{Commands, Res, ResMut},
+        system::{Commands, ResMut},
     },
-    log::info,
     math::Vec3,
     scene::SceneRoot,
     transform::components::Transform,

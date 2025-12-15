@@ -4,7 +4,7 @@ use bevy::ecs::{
 };
 
 use crate::{
-    messages::{SetTileMessage, UpdateTileMessage, UpdateTileModelMessage},
+    messages::{SetTileMessage, UpdateTileMessage},
     resources::Tilemap,
 };
 

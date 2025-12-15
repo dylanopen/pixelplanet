@@ -1,7 +1,6 @@
 use bevy::{
     asset::{AssetServer, Handle},
     ecs::{message::MessageWriter, resource::Resource, system::ResMut},
-    log::{info, warn},
     math::IVec2,
     scene::Scene,
 };
@@ -9,7 +8,7 @@ use bevy::{
 use crate::{
     components::{Tile, TileType},
     consts::TILEMAP_SIZE,
-    messages::{UpdateTileMessage, UpdateTileModelMessage},
+    messages::UpdateTileMessage,
 };
 
 #[derive(Resource)]

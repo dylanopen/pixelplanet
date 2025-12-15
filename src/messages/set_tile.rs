@@ -1,6 +1,6 @@
 use bevy::{ecs::message::Message, math::IVec2};
 
-use crate::components::{Tile, TileType};
+use crate::components::TileType;
 
 #[derive(Message)]
 pub struct SetTileMessage {

@@ -37,16 +37,16 @@ fn update_road_tile(
 ) {
     let neighbor_up = tilemap
         .get_tile(pos + IVEC2_UP)
-        .map_or(false, |tile| matches!(tile.tiletype, TileType::Road(_)));
+        .is_some_and(|tile| matches!(tile.tiletype, TileType::Road(_)));
     let neighbor_down = tilemap
         .get_tile(pos + IVEC2_DOWN)
-        .map_or(false, |tile| matches!(tile.tiletype, TileType::Road(_)));
+        .is_some_and(|tile| matches!(tile.tiletype, TileType::Road(_)));
     let neighbor_left = tilemap
         .get_tile(pos + IVEC2_LEFT)
-        .map_or(false, |tile| matches!(tile.tiletype, TileType::Road(_)));
+        .is_some_and(|tile| matches!(tile.tiletype, TileType::Road(_)));
     let neighbor_right = tilemap
         .get_tile(pos + IVEC2_RIGHT)
-        .map_or(false, |tile| matches!(tile.tiletype, TileType::Road(_)));
+        .is_some_and(|tile| matches!(tile.tiletype, TileType::Road(_)));
 
     let variant = if neighbor_up && neighbor_down && neighbor_left && neighbor_right {
         11

@@ -1,7 +1,7 @@
 use bevy::ecs::message::{MessageReader, MessageWriter};
 
 use crate::{
-    components::{RoadVariant, Tile, TileType},
+    components::{RoadVariant, TileType},
     messages::{ClickTileMessage, SetTileMessage},
 };
 
