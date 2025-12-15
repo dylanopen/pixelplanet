@@ -1,6 +1,6 @@
 use bevy::app::{App, Plugin, Startup, Update};
 
-use crate::{executors, triggers, spawn::spawn_selector_mesh};
+use crate::{executors, forwarders, spawn::spawn_selector_mesh, triggers};
 
 pub struct SelectorPlugin;
 
@@ -19,6 +19,6 @@ impl Plugin for SelectorPlugin {
         );
 
         app.add_systems(Update, triggers::left_click::on_left_click);
-        app.add_systems(Update, executors::click_tile::place_road);
+        app.add_systems(Update, forwarders::place_road::place_road);
     }
 }
