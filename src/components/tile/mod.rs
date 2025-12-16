@@ -43,3 +43,14 @@ impl Tile {
 pub enum TileType {
     Road(RoadVariant),
 }
+
+impl TileType {
+    pub fn get_cost(&self) -> f64 {
+        // in the future, these costs will be more dynamic and may be read from
+        // a resource/config file.
+        match self {
+            TileType::Road(_) => 50.0,
+        }
+    }
+}
+
