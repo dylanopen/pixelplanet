@@ -1,11 +1,11 @@
-pub mod ambient_light;
-pub mod configure_camera_controls;
-pub mod ground_plane;
-pub mod main_camera;
-pub mod money_display;
-pub mod selector_mesh;
-pub mod sun_light;
-pub mod terrain_voxels;
+mod ambient_light;
+mod configure_camera_controls;
+mod ground_plane;
+mod main_camera;
+mod money_display;
+mod selector_mesh;
+mod sun_light;
+mod terrain_voxels;
 
 pub use ambient_light::spawn_ambient_light;
 pub use configure_camera_controls::configure_camera_controls;
