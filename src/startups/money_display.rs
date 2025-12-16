@@ -1,10 +1,10 @@
 use bevy::color::Color;
 use bevy::ecs::system::Commands;
-use bevy::ecs::system::Res;
 use bevy::text::{Justify, TextColor, TextLayout};
 use bevy::ui::widget::Text;
 use bevy::ui::{Node, PositionType, px};
 use bevy::utils::default;
+use bevy::ecs::system::Res;
 
 use crate::components::MoneyDisplay;
 use crate::resources::Money;
