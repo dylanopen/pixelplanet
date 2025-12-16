@@ -3,3 +3,4 @@ pub mod set_tile;
 pub mod update_tile;
 pub mod update_tile_model;
 pub mod set_money;
+pub mod update_money_display;
