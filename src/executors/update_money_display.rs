@@ -10,7 +10,6 @@ pub fn update_money_display(
     mut set_money_mr: MessageReader<SetMoneyMessage>,
     mut money_display_text: Single<&mut Text, With<MoneyDisplay>>,
 ) {
-    dbg!("Updating money display");
     for msg in set_money_mr.read() {
         **money_display_text = Text::new(format!("${:.2}", msg.new));
     }

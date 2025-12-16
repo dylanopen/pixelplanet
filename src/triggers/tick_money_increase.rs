@@ -12,5 +12,4 @@ pub fn tick_money_increase(
     let money_increase = time.delta_secs_f64() * 5.0; // increase money by 5 per second
     let new = money.0 + money_increase;
     set_money_mw.write(SetMoneyMessage { new });
-    dbg!(money);
 }
