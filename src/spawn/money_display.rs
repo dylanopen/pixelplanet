@@ -4,11 +4,11 @@ use bevy::text::{Justify, TextColor, TextLayout};
 use bevy::ui::widget::Text;
 use bevy::ui::{Node, PositionType, px};
 use bevy::utils::default;
-use bevy::{asset::AssetServer, ecs::system::Res};
+use bevy::ecs::system::Res;
 
 use crate::resources::Money;
 
-pub fn spawn_money_display(mut commands: Commands, assets: Res<AssetServer>, money: Res<Money>) {
+pub fn spawn_money_display(mut commands: Commands, money: Res<Money>) {
     commands.spawn((
         Node {
             position_type: PositionType::Absolute,
