@@ -8,6 +8,6 @@ pub fn register_startups(app: &mut App) {
     app.add_systems(Startup, spawn_money_display);
     app.add_systems(Startup, spawn_selector_mesh);
     app.add_systems(Startup, spawn_terrain_voxels);
-        app.add_systems(Startup, spawn_ground_plane);
+    app.add_systems(Startup, spawn_ground_plane);
 
 }
