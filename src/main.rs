@@ -12,7 +12,6 @@ fn main() {
 
     let mut app = register(app);
 
-    messages::registry::register_messages(&mut app);
     resources::registry::init_resources(&mut app);
 
     app.add_plugins(CameraPlugin);
