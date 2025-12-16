@@ -10,5 +10,4 @@ pub mod forwarders;
 pub mod executors;
 pub mod spawn;
 
-pub mod plugins;
 pub mod registry;
