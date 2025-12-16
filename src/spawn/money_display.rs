@@ -6,6 +6,7 @@ use bevy::ui::{Node, PositionType, px};
 use bevy::utils::default;
 use bevy::ecs::system::Res;
 
+use crate::components::MoneyDisplay;
 use crate::resources::Money;
 
 pub fn spawn_money_display(mut commands: Commands, money: Res<Money>) {
@@ -19,5 +20,6 @@ pub fn spawn_money_display(mut commands: Commands, money: Res<Money>) {
         Text::new(format!("{}", *money)),
         TextColor(Color::WHITE),
         TextLayout::new_with_justify(Justify::Center),
+        MoneyDisplay,
     ));
 }
