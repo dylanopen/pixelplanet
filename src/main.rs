@@ -12,7 +12,6 @@ fn main() {
 
     let mut app = register(app);
 
-    app.add_plugins(LightPlugin);
     app.add_plugins(SelectorPlugin);
     app.add_plugins(TileRenderPlugin);
     app.add_plugins(MoneyPlugin);
