@@ -12,8 +12,6 @@ fn main() {
 
     let mut app = register(app);
 
-    resources::registry::init_resources(&mut app);
-
     app.add_plugins(CameraPlugin);
     app.add_plugins(LightPlugin);
     app.add_plugins(TerrainPlugin);
