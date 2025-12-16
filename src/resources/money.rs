@@ -3,22 +3,22 @@ use std::fmt::Display;
 use bevy::ecs::resource::Resource;
 
 #[derive(Debug, Clone, Copy, PartialEq, Resource)]
-pub struct Money(pub f32);
+pub struct Money(pub f64);
 
 impl Money {
-    pub fn new(amount: f32) -> Self {
+    pub fn new(amount: f64) -> Self {
         Money(amount)
     }
 
-    pub fn add(&mut self, amount: f32) {
+    pub fn add(&mut self, amount: f64) {
         self.0 += amount;
     }
 
-    pub fn subtract(&mut self, amount: f32) {
+    pub fn subtract(&mut self, amount: f64) {
         self.0 -= amount;
     }
 
-    pub fn get(&self) -> f32 {
+    pub fn get(&self) -> f64 {
         self.0
     }
 }
