@@ -8,4 +8,5 @@ pub fn register_executors(app: &mut App) {
     app.add_systems(Update, executors::set_money_res);
     app.add_systems(Update, executors::set_tile_in_tilemap);
     app.add_systems(Update, executors::update_money_display);
+    app.add_systems(Update, executors::update_tiles);
 }
