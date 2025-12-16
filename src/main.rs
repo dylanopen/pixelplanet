@@ -17,6 +17,7 @@ fn main() {
     app.add_plugins(TerrainPlugin);
     app.add_plugins(SelectorPlugin);
     app.add_plugins(TileRenderPlugin);
+    app.add_plugins(MoneyPlugin);
 
     app.run();
 }

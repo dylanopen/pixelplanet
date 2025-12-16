@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 use bevy::ecs::resource::Resource;
 
 #[derive(Debug, Clone, Copy, PartialEq, Resource)]
@@ -21,9 +23,14 @@ impl Money {
     }
 }
 
+impl Display for Money {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "${:.2}", self.0)
+    }
+}
+
 impl Default for Money {
     fn default() -> Self {
         Money(1000.0)
     }
 }
-
