@@ -9,4 +9,3 @@ impl Plugin for MoneyPlugin {
         app.add_systems(Startup, spawn_money_display);
     }
 }
-
