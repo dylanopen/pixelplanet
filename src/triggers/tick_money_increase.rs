@@ -1,11 +1,9 @@
 use crate::messages::AddMoneyMessage;
-use crate::resources::Money;
 use bevy::ecs::message::MessageWriter;
 use bevy::ecs::system::Res;
 use bevy::time::Time;
 
 pub fn tick_money_increase(
-    money: Res<Money>,
     time: Res<Time>,
     mut set_money_mw: MessageWriter<AddMoneyMessage>,
 ) {
