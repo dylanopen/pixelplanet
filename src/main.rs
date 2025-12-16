@@ -12,7 +12,6 @@ fn main() {
 
     let mut app = register(app);
 
-    app.add_plugins(CameraPlugin);
     app.add_plugins(LightPlugin);
     app.add_plugins(TerrainPlugin);
     app.add_plugins(SelectorPlugin);

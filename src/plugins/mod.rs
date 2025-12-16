@@ -5,7 +5,6 @@ pub mod selector;
 pub mod terrain;
 pub mod tile_render;
 
-pub use camera::CameraPlugin;
 pub use light::LightPlugin;
 pub use money::MoneyPlugin;
 pub use selector::SelectorPlugin;
