@@ -6,8 +6,6 @@ pub struct SelectorPlugin;
 
 impl Plugin for SelectorPlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, spawn_selector_mesh);
-
         app.add_systems(Update, triggers::map_cursor_hover::map_cursor_hover);
         app.add_systems(
             Update,
