@@ -1,4 +1,4 @@
-use bevy::ecs::resource::Resource;
+use bevy::ecs::component::Component;
 
-#[derive(Resource)]
+#[derive(Component)]
 pub struct MoneyDisplay;
