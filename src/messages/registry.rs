@@ -9,4 +9,5 @@ pub fn register_messages(app: &mut App) {
     app.add_message::<messages::UpdateTileModelMessage>();
     app.add_message::<messages::SetTileMessage>();
     app.add_message::<messages::SetMoneyMessage>();
+    app.add_message::<messages::PurchaseTileMessage>();
 }
