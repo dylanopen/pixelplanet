@@ -7,6 +7,8 @@ use bevy::ui::widget::Text;
 use bevy::ui::{px, AlignItems, BackgroundColor, BorderColor, JustifyContent, Node, PositionType, UiRect};
 use bevy::utils::default;
 
+use crate::components::build_button::BuildButton;
+
 pub fn spawn_build_button(mut commands: Commands) {
     let button = (
         BorderColor::all(Color::BLACK),
@@ -24,6 +26,7 @@ pub fn spawn_build_button(mut commands: Commands) {
             Text::new(" Build "),
             TextColor(Color::srgb(0.9, 0.9, 0.9)),
             TextFont::default().with_font_size(24.0),
+        BuildButton,
         )],
     );
 
