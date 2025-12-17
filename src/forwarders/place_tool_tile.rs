@@ -5,7 +5,7 @@ use crate::{
     messages::{ClickTileMessage, PurchaseTileMessage},
 };
 
-pub fn place_road(
+pub fn place_tool_tile(
     mut click_tile_mr: MessageReader<ClickTileMessage>,
     mut purchase_tile_mw: MessageWriter<PurchaseTileMessage>,
 ) {
