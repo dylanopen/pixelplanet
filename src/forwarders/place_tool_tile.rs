@@ -15,10 +15,6 @@ pub fn place_tool_tile(
     active_tool_type: Res<ActiveToolType>,
 ) {
     let tool_type = &active_tool_type.0;
-    #[expect(
-        irrefutable_let_patterns,
-        reason = "more tool types will be added later"
-    )]
     let ToolType::PlaceTile(tiletype) = tool_type else {
         return;
     };
