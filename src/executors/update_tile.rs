@@ -27,6 +27,7 @@ pub fn update_tiles(
             }
             _ => { /* other tile types do not need updating yet */ }
         }
+        update_tile_model_mw.write(UpdateTileModelMessage { pos });
     }
 }
 
@@ -76,6 +77,5 @@ fn update_road_tile(
 
     if let Some(tile) = tilemap.get_tile_mut(pos) {
         tile.tiletype = TileType::Road(RoadVariant(variant));
-        update_tile_model_mw.write(UpdateTileModelMessage { pos });
     }
 }
