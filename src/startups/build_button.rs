@@ -8,9 +8,11 @@ use bevy::ui::{px, AlignItems, BackgroundColor, BorderColor, JustifyContent, Nod
 use bevy::utils::default;
 
 use crate::components::build_button::BuildButton;
+use crate::components::BuildContainer;
 
 pub fn spawn_build_button(mut commands: Commands) {
     let button = (
+        BuildContainer,
         BorderColor::all(Color::BLACK),
         BackgroundColor(Color::srgb(0.12, 0.12, 0.12)),
         Node {
@@ -23,10 +25,10 @@ pub fn spawn_build_button(mut commands: Commands) {
             ..default()
         },
         children![(
+            BuildButton,
             Text::new(" Build "),
             TextColor(Color::srgb(0.9, 0.9, 0.9)),
             TextFont::default().with_font_size(24.0),
-            BuildButton,
         )],
     );
 
