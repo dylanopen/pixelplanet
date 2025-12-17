@@ -24,7 +24,8 @@ pub fn update_tiles(
         match tile.tiletype {
             TileType::Road(_) => {
                 update_road_tile(&mut tilemap, pos, &mut update_tile_model_mw);
-            }
+            },
+            _ => { /* other tile types do not need updating yet */ }
         }
     }
 }

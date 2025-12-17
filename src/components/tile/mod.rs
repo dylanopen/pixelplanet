@@ -1,4 +1,5 @@
 pub mod road_variant;
+pub mod residential_variant;
 
 use bevy::{
     asset::{AssetServer, Handle},
@@ -6,6 +7,7 @@ use bevy::{
     scene::Scene,
 };
 pub use road_variant::RoadVariant;
+pub use residential_variant::ResidentialVariant;
 
 #[derive(Debug, Clone)]
 pub struct Tile {
@@ -24,6 +26,7 @@ impl Tile {
     pub fn get_model_name(&self) -> Option<String> {
         match &self.tiletype {
             TileType::Road(variant) => Some(variant.get_model_name()),
+            TileType::Residential(variant) => Some(variant.get_model_name()),
         }
     }
 
@@ -42,6 +45,7 @@ impl Tile {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum TileType {
     Road(RoadVariant),
+    Residential(ResidentialVariant),
 }
 
 impl TileType {
@@ -50,6 +54,7 @@ impl TileType {
         // a resource/config file.
         match self {
             TileType::Road(_) => 50.0,
+            TileType::Residential(_) => 100.0,
         }
     }
 }
