@@ -26,7 +26,7 @@ pub fn spawn_build_button(mut commands: Commands) {
             Text::new(" Build "),
             TextColor(Color::srgb(0.9, 0.9, 0.9)),
             TextFont::default().with_font_size(24.0),
-        BuildButton,
+            BuildButton,
         )],
     );
 
