@@ -1,7 +1,9 @@
 use bevy::ecs::message::Message;
 
+use crate::components::ToolType;
+
 #[derive(Message, Debug, Clone)]
 pub struct SetActiveToolTypeMessage {
-    pub slot_index: usize,
+    pub tooltype: ToolType,
 }
 
