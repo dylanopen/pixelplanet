@@ -11,5 +11,5 @@ pub fn register_startups(app: &mut App) {
     app.add_systems(Startup, spawn_ground_plane);
 
     app.add_systems(Startup, spawn_money_display);
-    app.add_systems(Startup, spawn_build_button);
+    //app.add_systems(Startup, spawn_build_button);
 }
