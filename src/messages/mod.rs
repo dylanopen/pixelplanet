@@ -6,6 +6,7 @@ pub mod set_money;
 pub mod set_tile;
 pub mod update_tile;
 pub mod update_tile_model;
+pub mod change_toolbar_slot;
 
 pub use add_money::AddMoneyMessage;
 pub use click_tile::ClickTileMessage;
@@ -15,3 +16,4 @@ pub use set_money::SetMoneyMessage;
 pub use set_tile::SetTileMessage;
 pub use update_tile::UpdateTileMessage;
 pub use update_tile_model::UpdateTileModelMessage;
+pub use change_toolbar_slot::ChangeToolbarSlotMessage;
