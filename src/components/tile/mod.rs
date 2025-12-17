@@ -1,13 +1,13 @@
-pub mod road_variant;
 pub mod residential_variant;
+pub mod road_variant;
 
 use bevy::{
     asset::{AssetServer, Handle},
     ecs::{entity::Entity, system::ResMut},
     scene::Scene,
 };
-pub use road_variant::RoadVariant;
 pub use residential_variant::ResidentialVariant;
+pub use road_variant::RoadVariant;
 
 #[derive(Debug, Clone)]
 pub struct Tile {
@@ -58,4 +58,3 @@ impl TileType {
         }
     }
 }
-

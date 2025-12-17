@@ -1,9 +1,9 @@
+mod executors;
+mod forwarders;
 mod messages;
 mod resources;
 mod startups;
 mod triggers;
-mod forwarders;
-mod executors;
 
 use bevy::app::App;
 
@@ -17,4 +17,3 @@ pub fn register(mut app: App) -> App {
 
     app
 }
-

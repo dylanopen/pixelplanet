@@ -13,7 +13,9 @@ pub fn set_added_money(
     for msg in add_money_mr.read() {
         increase += msg.increase;
     }
-    if increase == 0.0 { return; }
+    if increase == 0.0 {
+        return;
+    }
     let new_amount = money.0 + increase;
     set_money_mw.write(SetMoneyMessage { new: new_amount });
 }

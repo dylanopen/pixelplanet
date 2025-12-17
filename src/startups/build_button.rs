@@ -4,11 +4,13 @@ use bevy::ecs::spawn::SpawnRelated;
 use bevy::ecs::system::Commands;
 use bevy::text::{TextColor, TextFont};
 use bevy::ui::widget::Text;
-use bevy::ui::{px, AlignItems, BackgroundColor, BorderColor, JustifyContent, Node, PositionType, UiRect};
+use bevy::ui::{
+    AlignItems, BackgroundColor, BorderColor, JustifyContent, Node, PositionType, UiRect, px,
+};
 use bevy::utils::default;
 
-use crate::components::build_button::BuildButton;
 use crate::components::BuildContainer;
+use crate::components::build_button::BuildButton;
 
 pub fn spawn_build_button(mut commands: Commands) {
     let button = (
@@ -33,6 +35,4 @@ pub fn spawn_build_button(mut commands: Commands) {
     );
 
     let _ = commands.spawn(button).id();
-
 }
-

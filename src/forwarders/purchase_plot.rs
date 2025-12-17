@@ -1,7 +1,7 @@
 use bevy::ecs::message::{MessageReader, MessageWriter};
 use bevy::ecs::system::Res;
 
-use crate::messages::{PurchaseTileMessage, AddMoneyMessage, SetTileMessage};
+use crate::messages::{AddMoneyMessage, PurchaseTileMessage, SetTileMessage};
 use crate::resources::Money;
 
 pub fn handle_purchase_tile(
@@ -20,8 +20,6 @@ pub fn handle_purchase_tile(
             pos: msg.pos,
             tiletype: msg.tiletype.clone(),
         });
-        add_money_mw.write(AddMoneyMessage {
-            increase: -cost
-        });
+        add_money_mw.write(AddMoneyMessage { increase: -cost });
     }
 }

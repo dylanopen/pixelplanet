@@ -1,6 +1,6 @@
 use bevy::app::{App, Startup};
 
-use crate::startups::{configure_camera_controls, spawn_ambient_light, spawn_build_button, spawn_ground_plane, spawn_main_camera, spawn_money_display, spawn_selector_mesh, spawn_terrain_voxels};
+use crate::startups::*;
 
 pub fn register_startups(app: &mut App) {
     app.add_systems(Startup, spawn_ambient_light);

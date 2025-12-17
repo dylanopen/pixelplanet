@@ -4,5 +4,5 @@ use crate::components::TileType;
 
 #[derive(Component)]
 pub enum ToolType {
-    PlaceTile(TileType)
+    PlaceTile(TileType),
 }
