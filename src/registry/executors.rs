@@ -10,4 +10,5 @@ pub fn register_executors(app: &mut App) {
     app.add_systems(Update, executors::update_money_display);
     app.add_systems(Update, executors::update_tiles);
     app.add_systems(Update, executors::update_tile_models);
+    app.add_systems(Update, executors::set_active_tool_type);
 }
