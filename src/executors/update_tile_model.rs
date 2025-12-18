@@ -4,9 +4,7 @@ use bevy::{
         message::MessageReader,
         system::{Commands, ResMut},
     },
-    math::Vec3,
-    scene::SceneRoot,
-    transform::components::Transform,
+    math::Vec3, scene::SceneRoot, transform::components::Transform
 };
 
 use crate::{consts::MODEL_SIZE, messages::UpdateTileModelMessage, resources::Tilemap};
