@@ -62,6 +62,19 @@ impl TileType {
         if tilemap.get_tile(pos).is_some() {
             return false; // cannot place on top of existing tile
         }
-        true
+        let neighbors = tilemap.get_straight_neighbor_positions(pos);
+        match self {
+            TileType::Road(_) => true, // roads can be placed anywhere
+            TileType::Residential(_) => {
+            for neighbor_pos in neighbors {
+                if let Some(neighbor_tile) = tilemap.get_tile(neighbor_pos) {
+                    if matches!(neighbor_tile.tiletype, TileType::Road(_)) {
+                        return true; // can place residential next to a road
+                    }
+                }
+            }
+            false
+            }
+        }
     }
 }
