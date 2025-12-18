@@ -2,7 +2,10 @@ pub mod residential_variant;
 pub mod road_variant;
 
 use bevy::{
-    asset::{AssetServer, Handle}, ecs::{entity::Entity, system::ResMut}, math::IVec2, scene::Scene
+    asset::{AssetServer, Handle},
+    ecs::{entity::Entity, system::ResMut},
+    math::IVec2,
+    scene::Scene,
 };
 pub use residential_variant::ResidentialVariant;
 pub use road_variant::RoadVariant;
@@ -66,13 +69,14 @@ impl TileType {
         match self {
             TileType::Road(_) => true, // roads can be placed anywhere
             TileType::Residential(_) => {
-            for neighbor_pos in neighbors {
-                if let Some(neighbor_tile) = tilemap.get_tile(neighbor_pos)
-                    && matches!(neighbor_tile.tiletype, TileType::Road(_)) {
+                for neighbor_pos in neighbors {
+                    if let Some(neighbor_tile) = tilemap.get_tile(neighbor_pos)
+                        && matches!(neighbor_tile.tiletype, TileType::Road(_))
+                    {
                         return true; // can place residential next to a road
                     }
-            }
-            false
+                }
+                false
             }
         }
     }
