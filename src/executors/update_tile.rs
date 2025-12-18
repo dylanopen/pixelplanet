@@ -23,7 +23,7 @@ pub fn update_tiles(
         };
         match tile.tiletype {
             TileType::Road(_) => {
-                update_road_tile(&mut tilemap, pos, &mut update_tile_model_mw);
+                update_road_tile(&mut tilemap, pos);
             }
             _ => { /* other tile types do not need updating yet */ }
         }
@@ -34,7 +34,6 @@ pub fn update_tiles(
 fn update_road_tile(
     tilemap: &mut Tilemap,
     pos: bevy::math::IVec2,
-    update_tile_model_mw: &mut MessageWriter<UpdateTileModelMessage>,
 ) {
     let neighbor_up = tilemap
         .get_tile(pos + IVEC2_UP)
