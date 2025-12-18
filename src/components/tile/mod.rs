@@ -67,11 +67,10 @@ impl TileType {
             TileType::Road(_) => true, // roads can be placed anywhere
             TileType::Residential(_) => {
             for neighbor_pos in neighbors {
-                if let Some(neighbor_tile) = tilemap.get_tile(neighbor_pos) {
-                    if matches!(neighbor_tile.tiletype, TileType::Road(_)) {
+                if let Some(neighbor_tile) = tilemap.get_tile(neighbor_pos)
+                    && matches!(neighbor_tile.tiletype, TileType::Road(_)) {
                         return true; // can place residential next to a road
                     }
-                }
             }
             false
             }
