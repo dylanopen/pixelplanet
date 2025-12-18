@@ -1,6 +1,6 @@
 use bevy::ecs::message::MessageWriter;
-use bevy::input::{ButtonInput, keyboard::KeyCode};
 use bevy::ecs::system::Res;
+use bevy::input::{ButtonInput, keyboard::KeyCode};
 
 use crate::messages::ChangeToolbarSlotMessage;
 
@@ -23,9 +23,7 @@ pub fn change_toolbar_tool(
             _ => None,
         };
         if let Some(index) = slot_index {
-            change_toolbar_slot_mw.write(ChangeToolbarSlotMessage {
-                slot_index: index,
-            });
+            change_toolbar_slot_mw.write(ChangeToolbarSlotMessage { slot_index: index });
         }
     }
 }

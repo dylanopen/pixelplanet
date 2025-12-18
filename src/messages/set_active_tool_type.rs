@@ -6,4 +6,3 @@ use crate::components::ToolType;
 pub struct SetActiveToolTypeMessage {
     pub tooltype: ToolType,
 }
-

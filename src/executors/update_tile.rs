@@ -31,10 +31,7 @@ pub fn update_tiles(
     }
 }
 
-fn update_road_tile(
-    tilemap: &mut Tilemap,
-    pos: bevy::math::IVec2,
-) {
+fn update_road_tile(tilemap: &mut Tilemap, pos: bevy::math::IVec2) {
     let neighbor_up = tilemap
         .get_tile(pos + IVEC2_UP)
         .is_some_and(|tile| matches!(tile.tiletype, TileType::Road(_)));

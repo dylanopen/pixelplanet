@@ -1,21 +1,21 @@
 pub mod add_money;
+pub mod change_toolbar_slot;
 pub mod click_tile;
 pub mod cursor_tile_hover;
 pub mod purchase_tile;
+pub mod set_active_tool_type;
 pub mod set_money;
 pub mod set_tile;
 pub mod update_tile;
 pub mod update_tile_model;
-pub mod change_toolbar_slot;
-pub mod set_active_tool_type;
 
 pub use add_money::AddMoneyMessage;
+pub use change_toolbar_slot::ChangeToolbarSlotMessage;
 pub use click_tile::ClickTileMessage;
 pub use cursor_tile_hover::CursorTileHoverMessage;
 pub use purchase_tile::PurchaseTileMessage;
+pub use set_active_tool_type::SetActiveToolTypeMessage;
 pub use set_money::SetMoneyMessage;
 pub use set_tile::SetTileMessage;
 pub use update_tile::UpdateTileMessage;
 pub use update_tile_model::UpdateTileModelMessage;
-pub use change_toolbar_slot::ChangeToolbarSlotMessage;
-pub use set_active_tool_type::SetActiveToolTypeMessage;
