@@ -58,7 +58,7 @@ impl Tilemap {
     }
 
     pub fn is_empty(&self, pos: IVec2) -> bool {
-        self.get_tile(pos).is_some()
+        self.get_tile(pos).is_none()
     }
 
     pub fn set_tile_type(
