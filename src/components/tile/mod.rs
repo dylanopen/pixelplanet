@@ -2,12 +2,12 @@ pub mod residential_variant;
 pub mod road_variant;
 
 use bevy::{
-    asset::{AssetServer, Handle},
-    ecs::{entity::Entity, system::ResMut},
-    scene::Scene,
+    asset::{AssetServer, Handle}, ecs::{entity::Entity, system::ResMut}, math::IVec2, scene::Scene
 };
 pub use residential_variant::ResidentialVariant;
 pub use road_variant::RoadVariant;
+
+use crate::resources::Tilemap;
 
 #[derive(Debug, Clone)]
 pub struct Tile {
@@ -56,5 +56,12 @@ impl TileType {
             TileType::Road(_) => 50.0,
             TileType::Residential(_) => 100.0,
         }
+    }
+
+    pub fn can_place_at(&self, pos: IVec2, tilemap: &Tilemap) -> bool {
+        if tilemap.get_tile(pos).is_some() {
+            return false; // cannot place on top of existing tile
+        }
+        true
     }
 }
