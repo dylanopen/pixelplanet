@@ -164,6 +164,28 @@ impl Tilemap {
         }
         neighbors
     }
+
+    pub fn get_all_neighbor_positions(&self, pos: IVec2) -> Vec<IVec2> {
+        let mut neighbors = Vec::new();
+        let directions = [
+            IVec2::new(0, 1),
+            IVec2::new(1, 0),
+            IVec2::new(0, -1),
+            IVec2::new(-1, 0),
+            IVec2::new(1, 1),
+            IVec2::new(1, -1),
+            IVec2::new(-1, -1),
+            IVec2::new(-1, 1),
+        ];
+
+        for dir in directions.iter() {
+            let neighbor_pos = pos + *dir;
+            if self.within_range(neighbor_pos) {
+                neighbors.push(neighbor_pos);
+            }
+        }
+        neighbors
+    }
 }
 
 impl Default for Tilemap {
