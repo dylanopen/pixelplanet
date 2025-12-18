@@ -10,4 +10,5 @@ pub mod forwarders;
 pub mod startups;
 pub mod triggers;
 
+// registry
 pub mod registry;
