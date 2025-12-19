@@ -6,4 +6,5 @@ use crate::components::TileType;
 pub enum ToolType {
     Select,
     PlaceTile(TileType),
+    DeleteTile,
 }
