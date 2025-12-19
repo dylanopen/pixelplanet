@@ -18,6 +18,7 @@ pub fn update_tiles(
     for msg in update_tile_mr.read() {
         let pos = msg.pos;
         let tile_opt = tilemap.get_tile(pos);
+        update_tile_model_mw.write(UpdateTileModelMessage { pos });
         let Some(tile) = tile_opt else {
             continue;
         };
@@ -27,7 +28,6 @@ pub fn update_tiles(
             }
             _ => { /* other tile types do not need updating yet */ }
         }
-        update_tile_model_mw.write(UpdateTileModelMessage { pos });
     }
 }
 
