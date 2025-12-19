@@ -17,7 +17,7 @@ pub fn update_tile_models(
 ) {
     for msg in update_tile_model_mr.read() {
         let pos = msg.pos;
-        let tile = tilemap.get_tile_mut(pos).unwrap();
+        let Some(tile) = tilemap.get_tile_mut(pos) else {continue;};
         let tile_model = tile.get_model(&asset_server).unwrap();
         if let Some(entity) = tile.entity {
             commands.entity(entity).despawn();
