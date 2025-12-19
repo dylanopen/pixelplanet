@@ -22,7 +22,7 @@ pub fn update_tile_selected_indicator(
     for hover_msg in hover_mr.read() {
         match hover_msg.pos {
             Some(pos) => {
-                if tilemap.is_empty(pos) {
+                if !tilemap.is_empty(pos) {
                     *indicator_query.1 = Visibility::Hidden
                 } else {
                     indicator_query.0.translation =
