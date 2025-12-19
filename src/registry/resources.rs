@@ -20,7 +20,7 @@ pub fn register_resources(app: &mut App) {
             None,
             None,
             None,
-            None,
+            Some(ToolType::DeleteTile),
         ],
     });
     app.insert_resource(ActiveToolType(ToolType::PlaceTile(TileType::Road(
