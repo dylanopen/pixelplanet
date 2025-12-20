@@ -7,6 +7,7 @@ pub mod money_display;
 pub mod terrain_voxel;
 pub mod tile_selected_indicator;
 pub mod tool_type;
+pub mod residential_building;
 
 pub use tile::*;
 pub use ui::*;
@@ -17,3 +18,4 @@ pub use money_display::MoneyDisplay;
 pub use terrain_voxel::TerrainVoxel;
 pub use tile_selected_indicator::TileSelectedIndicator;
 pub use tool_type::ToolType;
+pub use residential_building::ResidentialBuilding;
