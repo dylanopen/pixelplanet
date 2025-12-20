@@ -8,6 +8,7 @@ pub fn register_resources(app: &mut App) {
     app.init_resource::<resources::Tilemap>();
     app.init_resource::<resources::Money>();
     app.init_resource::<resources::ResidentialTax>();
+    app.init_resource::<resources::MoveinRate>();
 
     app.insert_resource(Toolbar {
         slots: vec![
