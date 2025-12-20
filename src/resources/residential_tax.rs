@@ -2,7 +2,7 @@ use bevy::ecs::resource::Resource;
 
 #[derive(Resource)]
 pub struct ResidentialTax {
-    pub rate: f32,
+    pub rate: f64,
 }
 
 impl Default for ResidentialTax {
