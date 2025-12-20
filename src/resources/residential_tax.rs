@@ -10,4 +10,3 @@ impl Default for ResidentialTax {
         ResidentialTax { rate: 0.1 }
     }
 }
-
