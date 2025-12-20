@@ -9,4 +9,5 @@ pub fn register_forwarders(app: &mut App) {
     app.add_systems(Update, forwarders::change_active_tool);
     app.add_systems(Update, forwarders::use_delete_tile);
     app.add_systems(Update, forwarders::sell_tile);
+    app.add_systems(Update, forwarders::spawn_building_entities);
 }
