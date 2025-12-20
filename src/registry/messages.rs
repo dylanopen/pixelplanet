@@ -15,4 +15,5 @@ pub fn register_messages(app: &mut App) {
     app.add_message::<messages::ChangeToolbarSlotMessage>();
     app.add_message::<messages::SetActiveToolTypeMessage>();
     app.add_message::<messages::SellTileMessage>();
+    app.add_message::<messages::CreateResidentialBuildingMessage>();
 }

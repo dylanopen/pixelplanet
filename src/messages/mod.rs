@@ -10,6 +10,7 @@ pub mod clear_tile;
 pub mod update_tile;
 pub mod update_tile_model;
 pub mod sell_tile;
+pub mod create_residential_building;
 
 pub use add_money::AddMoneyMessage;
 pub use change_toolbar_slot::ChangeToolbarSlotMessage;
@@ -23,3 +24,4 @@ pub use clear_tile::ClearTileMessage;
 pub use update_tile::UpdateTileMessage;
 pub use update_tile_model::UpdateTileModelMessage;
 pub use sell_tile::SellTileMessage;
+pub use create_residential_building::CreateResidentialBuildingMessage;
