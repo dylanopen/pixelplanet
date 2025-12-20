@@ -7,6 +7,8 @@ pub fn register_resources(app: &mut App) {
     app.init_resource::<resources::CurrentHoveredTile>();
     app.init_resource::<resources::Tilemap>();
     app.init_resource::<resources::Money>();
+    app.init_resource::<resources::ResidentialTax>();
+
     app.insert_resource(Toolbar {
         slots: vec![
             Some(ToolType::Select),
