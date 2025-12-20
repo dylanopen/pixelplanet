@@ -4,7 +4,9 @@ use bevy::{
         message::MessageReader,
         system::{Commands, ResMut},
     },
-    math::Vec3, scene::SceneRoot, transform::components::Transform
+    math::Vec3,
+    scene::SceneRoot,
+    transform::components::Transform,
 };
 
 use crate::{consts::MODEL_SIZE, messages::UpdateTileModelMessage, resources::Tilemap};
@@ -17,7 +19,9 @@ pub fn update_tile_models(
 ) {
     for msg in update_tile_model_mr.read() {
         let pos = msg.pos;
-        let Some(tile) = tilemap.get_tile_mut(pos) else {continue;};
+        let Some(tile) = tilemap.get_tile_mut(pos) else {
+            continue;
+        };
         let tile_model = tile.get_model(&asset_server).unwrap();
         if let Some(entity) = tile.entity {
             commands.entity(entity).despawn();

@@ -1,6 +1,9 @@
 use bevy::ecs::message::{MessageReader, MessageWriter};
 
-use crate::{components::TileType, messages::{CreateResidentialBuildingMessage, SetTileMessage}};
+use crate::{
+    components::TileType,
+    messages::{CreateResidentialBuildingMessage, SetTileMessage},
+};
 
 pub fn spawn_building_entities(
     mut set_tile_mr: MessageReader<SetTileMessage>,
@@ -13,9 +16,11 @@ pub fn spawn_building_entities(
                 let residents = 0;
                 let capacity = variant.get_capacity();
                 create_residential_building_mw.write(CreateResidentialBuildingMessage {
-                    pos, residents, capacity
+                    pos,
+                    residents,
+                    capacity,
                 });
-            },
+            }
             _ => {} // no need to raise events on other tile types
         }
     }

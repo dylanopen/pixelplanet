@@ -25,8 +25,6 @@ pub fn use_delete_tile(
             continue;
         }
 
-        sell_tile_mw.write(SellTileMessage {
-            pos,
-        });
+        sell_tile_mw.write(SellTileMessage { pos });
     }
 }

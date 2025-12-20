@@ -12,4 +12,3 @@ pub mod triggers;
 
 // registry
 pub mod registry;
-

@@ -12,7 +12,9 @@ pub fn spawn_residential_buildings(
         let capacity = msg.capacity;
 
         commands.spawn(ResidentialBuilding {
-            pos, residents, capacity
+            pos,
+            residents,
+            capacity,
         });
     }
 }

@@ -1,5 +1,5 @@
-use bevy::math::IVec2;
 use bevy::ecs::message::Message;
+use bevy::math::IVec2;
 
 #[derive(Debug, Clone, Message)]
 pub struct CreateResidentialBuildingMessage {

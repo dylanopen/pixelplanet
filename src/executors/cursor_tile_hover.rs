@@ -10,14 +10,15 @@ use bevy::{
 };
 
 use crate::{
-    components::TileSelectedIndicator, messages::CursorTileHoverMessage,
+    components::TileSelectedIndicator,
+    messages::CursorTileHoverMessage,
     resources::{CurrentHoveredTile, Tilemap},
 };
 
 pub fn update_tile_selected_indicator(
     mut indicator_query: Single<(&mut Transform, &mut Visibility), With<TileSelectedIndicator>>,
     mut hover_mr: MessageReader<CursorTileHoverMessage>,
-    tilemap: Res<Tilemap>
+    tilemap: Res<Tilemap>,
 ) {
     for hover_msg in hover_mr.read() {
         match hover_msg.pos {
