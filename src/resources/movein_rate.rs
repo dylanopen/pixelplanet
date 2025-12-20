@@ -10,4 +10,3 @@ impl Default for MoveinRate {
         MoveinRate { rate: 1.0 }
     }
 }
-
