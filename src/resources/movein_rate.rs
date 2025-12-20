@@ -7,7 +7,7 @@ pub struct MoveinRate {
 
 impl Default for MoveinRate {
     fn default() -> Self {
-        MoveinRate { rate: 0.25 }
+        MoveinRate { rate: 1.0 }
     }
 }
 
